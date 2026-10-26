@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Prediksi Keterlambatan Pengiriman{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <strong>📦 Prediksi Keterlambatan Pengiriman</strong>
+    <nav>
+      <a href="{{ url_for('index') }}">Prediksi</a>
+      <a href="{{ url_for('eda_page') }}">EDA</a>
+      <a href="{{ url_for('model_page') }}">Evaluasi Model</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">{% block content %}{% endblock %}</main>
+<footer class="wrap">
+  Logistic Regression &middot; Dataset DataCo Smart Supply Chain (Kaggle) &middot;
+  Hasil prediksi bersifat estimasi statistik, bukan kepastian.
+</footer>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Evaluasi Model - Prediksi Keterlambatan{% endblock %}
+{% block content %}
+<h1>Evaluasi Model</h1>
+{% if not metrics %}
+<div class="alert warn">Metrik belum tersedia. Jalankan <code>python train.py</code>.</div>
+{% else %}
+<p class="muted">{{ metrics.model }} &middot; dilatih {{ metrics.trained_at_utc }} (UTC) &middot;
+  scikit-learn {{ metrics.environment.scikit_learn }}<br>
+  Split: {{ metrics.split.method }} &mdash; latih {{ metrics.split.n_train|num }} baris,
+  uji {{ metrics.split.n_test|num }} baris. Ambang keputusan {{ metrics.threshold }}.</p>
+
+<h2>Metrik</h2>
+<table>
+  <tr><th>Metrik</th><th>Baseline (kelas mayoritas, uji)</th>
+      <th>CV {{ metrics.cross_validation_train.folds }}-fold (latih)</th>
+      <th>Data latih</th><th>Data uji</th></tr>
+  {% for k, name in [('accuracy','Akurasi'),('precision','Presisi'),('recall','Recall'),('f1','F1-score'),('roc_auc','ROC-AUC')] %}
+  <tr><td>{{ name }}</td>
+    <td>{{ metrics.baseline_majority_test[k]|pct }}</td>
+    <td>{{ metrics.cross_validation_train.scores[k].mean|pct }}
+        &plusmn; {{ metrics.cross_validation_train.scores[k].std|pct }}</td>
+    <td>{{ metrics.train[k]|pct }}</td>
+    <td><strong>{{ metrics.test[k]|pct }}</strong></td></tr>
+  {% endfor %}
+</table>
+<p class="muted">Presisi/recall/F1 dihitung untuk kelas "terlambat" (1). Angka pada tabel
+dibaca langsung dari <code>artifacts/metrics.json</code> hasil pelatihan.</p>
+
+<div class="figs">
+  <figure><img src="{{ url_for('artifact_file', filename='figures/confusion_matrix.png') }}" alt="Confusion matrix"></figure>
+  <figure><img src="{{ url_for('artifact_file', filename='figures/roc_curve.png') }}" alt="Kurva ROC"></figure>
+  <figure class="wide"><img src="{{ url_for('artifact_file', filename='figures/coefficients.png') }}" alt="Koefisien model"></figure>
+</div>
+
+<h2>Koefisien terbesar</h2>
+<div class="two">
+  <div><h3>Menaikkan risiko terlambat</h3>
+    <table><tr><th>Fitur</th><th>Koef.</th><th>Odds ratio</th></tr>
+    {% for r in metrics.top_coefficients_increase_late %}
+    <tr><td>{{ r.feature }}</td><td>{{ '%.3f'|format(r.coef) }}</td><td>{{ '%.3f'|format(r.odds_ratio) }}</td></tr>
+    {% endfor %}</table></div>
+  <div><h3>Menurunkan risiko terlambat</h3>
+    <table><tr><th>Fitur</th><th>Koef.</th><th>Odds ratio</th></tr>
+    {% for r in metrics.top_coefficients_decrease_late %}
+    <tr><td>{{ r.feature }}</td><td>{{ '%.3f'|format(r.coef) }}</td><td>{{ '%.3f'|format(r.odds_ratio) }}</td></tr>
+    {% endfor %}</table></div>
+</div>
+{% endif %}
+{% endblock %}

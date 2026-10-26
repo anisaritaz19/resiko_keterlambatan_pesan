@@ -1,0 +1,155 @@
+{
+  "features": [
+    "scheduled_days",
+    "quantity",
+    "discount_rate",
+    "product_price",
+    "order_hour",
+    "shipping_mode",
+    "market",
+    "order_region",
+    "customer_segment",
+    "payment_type",
+    "department",
+    "order_month",
+    "order_weekday"
+  ],
+  "numeric_features": [
+    "scheduled_days",
+    "quantity",
+    "discount_rate",
+    "product_price",
+    "order_hour"
+  ],
+  "categorical_features": [
+    "shipping_mode",
+    "market",
+    "order_region",
+    "customer_segment",
+    "payment_type",
+    "department",
+    "order_month",
+    "order_weekday"
+  ],
+  "categories": {
+    "shipping_mode": [
+      "First Class",
+      "Same Day",
+      "Second Class",
+      "Standard Class"
+    ],
+    "market": [
+      "Africa",
+      "Europe",
+      "LATAM",
+      "Pacific Asia",
+      "USCA"
+    ],
+    "order_region": [
+      "Canada",
+      "Caribbean",
+      "Central Africa",
+      "Central America",
+      "Central Asia",
+      "East Africa",
+      "East of USA",
+      "Eastern Asia",
+      "Eastern Europe",
+      "North Africa",
+      "Northern Europe",
+      "Oceania",
+      "South America",
+      "South Asia",
+      "South of  USA",
+      "Southeast Asia",
+      "Southern Africa",
+      "Southern Europe",
+      "US Center",
+      "West Africa",
+      "West Asia",
+      "West of USA",
+      "Western Europe"
+    ],
+    "customer_segment": [
+      "Consumer",
+      "Corporate",
+      "Home Office"
+    ],
+    "payment_type": [
+      "CASH",
+      "DEBIT",
+      "PAYMENT",
+      "TRANSFER"
+    ],
+    "department": [
+      "Apparel",
+      "Book Shop",
+      "Discs Shop",
+      "Fan Shop",
+      "Fitness",
+      "Footwear",
+      "Golf",
+      "Health and Beauty",
+      "Outdoors",
+      "Pet Shop",
+      "Technology"
+    ],
+    "order_month": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
+    "order_weekday": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6"
+    ]
+  },
+  "numeric_ranges": {
+    "scheduled_days": {
+      "min": 0.0,
+      "max": 4.0,
+      "median": 4.0
+    },
+    "quantity": {
+      "min": 1.0,
+      "max": 5.0,
+      "median": 1.0
+    },
+    "discount_rate": {
+      "min": 0.0,
+      "max": 0.25,
+      "median": 0.100000001
+    },
+    "product_price": {
+      "min": 9.989999771,
+      "max": 1999.98999,
+      "median": 59.99000168
+    },
+    "order_hour": {
+      "min": 0.0,
+      "max": 23.0,
+      "median": 11.0
+    }
+  },
+  "late_rate_overall": 0.5482913155955883,
+  "cleaning": {
+    "rows_raw": 180519,
+    "rows_dropped_invalid_target": 0,
+    "rows_dropped_invalid_date": 0,
+    "rows_used": 180519
+  }
+}

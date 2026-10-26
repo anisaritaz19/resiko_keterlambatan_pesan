@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: dataco-prediksi-keterlambatan
+    runtime: python
+    plan: free
+    # Jika artifacts/model_logreg.joblib sudah ada di repo, pelatihan dilewati.
+    # Jika belum ada, model dilatih saat build (mengunduh dataset via kagglehub).
+    buildCommand: pip install -r requirements.txt && python train.py --if-missing
+    startCommand: gunicorn app:app --workers 1 --timeout 120 --bind 0.0.0.0:$PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3

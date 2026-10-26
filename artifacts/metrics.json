@@ -1,0 +1,303 @@
+{
+  "trained_at_utc": "2026-10-26T04:30:10+00:00",
+  "model": "LogisticRegression (lbfgs, max_iter=1000)",
+  "threshold": 0.5,
+  "random_state": 42,
+  "split": {
+    "method": "GroupShuffleSplit per Order Id",
+    "test_size": 0.2,
+    "n_train": 144650,
+    "n_test": 35869,
+    "late_rate_train": 0.5482751469063256,
+    "late_rate_test": 0.5483565195572778
+  },
+  "baseline_majority_test": {
+    "n": 35869,
+    "accuracy": 0.5483565195572778,
+    "precision": 0.5483565195572778,
+    "recall": 1.0,
+    "f1": 0.7083078252727862,
+    "confusion_matrix": [
+      [
+        0,
+        16200
+      ],
+      [
+        0,
+        19669
+      ]
+    ],
+    "classification_report": {
+      "tidak_terlambat": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 16200.0
+      },
+      "terlambat": {
+        "precision": 0.5483565195572778,
+        "recall": 1.0,
+        "f1-score": 0.7083078252727862,
+        "support": 19669.0
+      },
+      "accuracy": 0.5483565195572778,
+      "macro avg": {
+        "precision": 0.2741782597786389,
+        "recall": 0.5,
+        "f1-score": 0.3541539126363931,
+        "support": 35869.0
+      },
+      "weighted avg": {
+        "precision": 0.3006948725409712,
+        "recall": 0.5483565195572778,
+        "f1-score": 0.38840521384176957,
+        "support": 35869.0
+      }
+    },
+    "roc_auc": 0.5
+  },
+  "cross_validation_train": {
+    "folds": 5,
+    "method": "GroupKFold per Order Id",
+    "scores": {
+      "accuracy": {
+        "mean": 0.7087383339094366,
+        "std": 0.007277949755875285
+      },
+      "precision": {
+        "mean": 0.8502807552369074,
+        "std": 0.008727574051853646
+      },
+      "recall": {
+        "mean": 0.5689817759418341,
+        "std": 0.00709031892440411
+      },
+      "f1": {
+        "mean": 0.6817406618418114,
+        "std": 0.0073115252851477675
+      },
+      "roc_auc": {
+        "mean": 0.7421881082897164,
+        "std": 0.006725661203666111
+      }
+    }
+  },
+  "train": {
+    "n": 144650,
+    "accuracy": 0.7097545800207398,
+    "precision": 0.8524989611272713,
+    "recall": 0.5690850859938468,
+    "f1": 0.6825406427221172,
+    "confusion_matrix": [
+      [
+        57533,
+        7809
+      ],
+      [
+        34175,
+        45133
+      ]
+    ],
+    "classification_report": {
+      "tidak_terlambat": {
+        "precision": 0.6273498495223971,
+        "recall": 0.8804903431177497,
+        "f1-score": 0.7326711238459089,
+        "support": 65342.0
+      },
+      "terlambat": {
+        "precision": 0.8524989611272713,
+        "recall": 0.5690850859938468,
+        "f1-score": 0.6825406427221172,
+        "support": 79308.0
+      },
+      "accuracy": 0.7097545800207398,
+      "macro avg": {
+        "precision": 0.7399244053248342,
+        "recall": 0.7247877145557982,
+        "f1-score": 0.7076058832840131,
+        "support": 144650.0
+      },
+      "weighted avg": {
+        "precision": 0.7507935117633883,
+        "recall": 0.7097545800207398,
+        "f1-score": 0.7051858269432772,
+        "support": 144650.0
+      }
+    },
+    "roc_auc": 0.7451025272065149
+  },
+  "test": {
+    "n": 35869,
+    "accuracy": 0.7060135493044133,
+    "precision": 0.8463933181473045,
+    "recall": 0.5667293710915654,
+    "f1": 0.6788879076707574,
+    "confusion_matrix": [
+      [
+        14177,
+        2023
+      ],
+      [
+        8522,
+        11147
+      ]
+    ],
+    "classification_report": {
+      "tidak_terlambat": {
+        "precision": 0.6245649588087581,
+        "recall": 0.8751234567901235,
+        "f1-score": 0.7289133396745417,
+        "support": 16200.0
+      },
+      "terlambat": {
+        "precision": 0.8463933181473045,
+        "recall": 0.5667293710915654,
+        "f1-score": 0.6788879076707574,
+        "support": 19669.0
+      },
+      "accuracy": 0.7060135493044133,
+      "macro avg": {
+        "precision": 0.7354791384780313,
+        "recall": 0.7209264139408444,
+        "f1-score": 0.7039006236726495,
+        "support": 35869.0
+      },
+      "weighted avg": {
+        "precision": 0.7462059858747446,
+        "recall": 0.7060135493044133,
+        "f1-score": 0.7014815678915972,
+        "support": 35869.0
+      }
+    },
+    "roc_auc": 0.7404695801941892
+  },
+  "top_coefficients_increase_late": [
+    {
+      "feature": "shipping_mode_First Class",
+      "coef": 1.981036155407904,
+      "odds_ratio": 7.250251481786065
+    },
+    {
+      "feature": "shipping_mode_Second Class",
+      "coef": 0.4410255224426525,
+      "odds_ratio": 1.5543003713781716
+    },
+    {
+      "feature": "payment_type_PAYMENT",
+      "coef": 0.17648100874127395,
+      "odds_ratio": 1.1930117697492733
+    },
+    {
+      "feature": "payment_type_CASH",
+      "coef": 0.1702792184741062,
+      "odds_ratio": 1.1856358565415377
+    },
+    {
+      "feature": "payment_type_DEBIT",
+      "coef": 0.16827601578027707,
+      "odds_ratio": 1.1832631648844052
+    },
+    {
+      "feature": "order_region_Central Africa",
+      "coef": 0.16554256431561734,
+      "odds_ratio": 1.1800331889556233
+    },
+    {
+      "feature": "order_region_South of  USA",
+      "coef": 0.15581386843580436,
+      "odds_ratio": 1.168608667886127
+    },
+    {
+      "feature": "department_Book Shop",
+      "coef": 0.13112588412451653,
+      "odds_ratio": 1.1401112941909248
+    },
+    {
+      "feature": "order_region_East of USA",
+      "coef": 0.11089054772786523,
+      "odds_ratio": 1.1172726121358707
+    },
+    {
+      "feature": "order_hour",
+      "coef": 0.10615860069435037,
+      "odds_ratio": 1.111998226212362
+    },
+    {
+      "feature": "customer_segment_Home Office",
+      "coef": 0.09659675594888743,
+      "odds_ratio": 1.1014161445525754
+    },
+    {
+      "feature": "market_Africa",
+      "coef": 0.09014075185718036,
+      "odds_ratio": 1.0943283016066194
+    }
+  ],
+  "top_coefficients_decrease_late": [
+    {
+      "feature": "shipping_mode_Same Day",
+      "coef": -1.5011178400348952,
+      "odds_ratio": 0.22288087567846177
+    },
+    {
+      "feature": "shipping_mode_Standard Class",
+      "coef": -0.6742991825570994,
+      "odds_ratio": 0.5095133713723273
+    },
+    {
+      "feature": "scheduled_days",
+      "coef": -0.40616308311169347,
+      "odds_ratio": 0.6662015123495744
+    },
+    {
+      "feature": "payment_type_TRANSFER",
+      "coef": -0.2683915877371221,
+      "odds_ratio": 0.7646083112339458
+    },
+    {
+      "feature": "order_region_Canada",
+      "coef": -0.2469348558001519,
+      "odds_ratio": 0.7811915819743508
+    },
+    {
+      "feature": "order_region_West Africa",
+      "coef": -0.12886103753685335,
+      "odds_ratio": 0.8790961184200128
+    },
+    {
+      "feature": "department_Technology",
+      "coef": -0.06584939104915649,
+      "odds_ratio": 0.9362718645966295
+    },
+    {
+      "feature": "order_region_Caribbean",
+      "coef": -0.04042149510387474,
+      "odds_ratio": 0.9603845564419002
+    },
+    {
+      "feature": "order_month_7",
+      "coef": -0.01915028297244627,
+      "odds_ratio": 0.9810319187711443
+    },
+    {
+      "feature": "order_region_Central Asia",
+      "coef": -0.017568232101941965,
+      "odds_ratio": 0.9825851895249313
+    },
+    {
+      "feature": "order_region_Oceania",
+      "coef": -0.01621741701223161,
+      "odds_ratio": 0.9839133772919442
+    },
+    {
+      "feature": "order_region_Southern Africa",
+      "coef": -0.012573787174802084,
+      "odds_ratio": 0.9875049326064765
+    }
+  ],
+  "environment": {
+    "python": "3.10.11",
+    "scikit_learn": "1.7.2"
+  }
+}

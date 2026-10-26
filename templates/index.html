@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Prediksi Risiko Keterlambatan Pesanan</h1>
+{% if not ready %}
+<div class="alert warn">
+  <strong>Model belum tersedia.</strong> Jalankan <code>python train.py</code>
+  untuk mengunduh dataset, melatih model, lalu muat ulang halaman ini.
+</div>
+{% else %}
+<p class="muted">Isi data pesanan di bawah ini. Model memperkirakan peluang pesanan
+dikirim terlambat berdasarkan informasi yang sudah diketahui saat pesanan dibuat.</p>
+
+{% if errors %}<div class="alert err"><strong>Periksa kembali isian Anda:</strong>
+  <ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul></div>{% endif %}
+
+{% if result %}
+<section class="result {{ 'late' if result.late else 'ok' }}">
+  <h2>{{ result.label }}</h2>
+  <p class="big">{{ result.probability_pct }}%
+    <span>peluang terlambat (ambang keputusan {{ (result.threshold * 100)|int }}%)</span></p>
+  <div class="meter"><div style="width: {{ result.probability_pct }}%"></div></div>
+  {% if result.factors %}
+  <h3>Faktor yang paling berpengaruh pada prediksi ini</h3>
+  <ul>{% for f in result.factors %}
+    <li>{{ f.name }} &rarr; <em>{{ f.direction }}</em> risiko terlambat</li>
+  {% endfor %}</ul>{% endif %}
+  {% for w in warnings %}<p class="alert warn">{{ w }}</p>{% endfor %}
+</section>
+{% endif %}
+
+<form method="post" action="{{ url_for('prediksi') }}" class="grid">
+  {% for f in fields %}
+  <label>{{ f.label }}
+    {% if f.type == 'select' %}
+      <select name="{{ f.key }}" required>
+        <option value="" disabled {{ '' if values.get(f.key) else 'selected' }}>-- pilih --</option>
+        {% for v, text in f.options %}
+        <option value="{{ v }}" {{ 'selected' if values.get(f.key) == v }}>{{ text }}</option>
+        {% endfor %}
+      </select>
+    {% else %}
+      <input type="number" name="{{ f.key }}" min="{{ f.min }}" max="{{ f.max }}"
+             step="{{ f.step }}" value="{{ values.get(f.key, '') }}" required>
+      <small>{{ f.hint }}</small>
+    {% endif %}
+  </label>
+  {% endfor %}
+  <button type="submit">Prediksi</button>
+</form>
+{% endif %}
+{% endblock %}

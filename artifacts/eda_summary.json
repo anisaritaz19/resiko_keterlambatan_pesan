@@ -1,0 +1,434 @@
+{
+  "n_rows": 180519,
+  "n_orders": 65752,
+  "cleaning": {
+    "rows_raw": 180519,
+    "rows_dropped_invalid_target": 0,
+    "rows_dropped_invalid_date": 0,
+    "rows_used": 180519
+  },
+  "missing_per_column": {
+    "scheduled_days": 0,
+    "quantity": 0,
+    "discount_rate": 0,
+    "product_price": 0,
+    "order_hour": 0,
+    "shipping_mode": 0,
+    "market": 0,
+    "order_region": 0,
+    "customer_segment": 0,
+    "payment_type": 0,
+    "department": 0,
+    "order_month": 0,
+    "order_weekday": 0,
+    "target": 0,
+    "order_id": 0
+  },
+  "duplicate_rows": 92,
+  "numeric_describe": {
+    "scheduled_days": {
+      "count": 180519.0,
+      "mean": 2.9318,
+      "std": 1.3744,
+      "min": 0.0,
+      "25%": 2.0,
+      "50%": 4.0,
+      "75%": 4.0,
+      "max": 4.0
+    },
+    "quantity": {
+      "count": 180519.0,
+      "mean": 2.1276,
+      "std": 1.4535,
+      "min": 1.0,
+      "25%": 1.0,
+      "50%": 1.0,
+      "75%": 3.0,
+      "max": 5.0
+    },
+    "discount_rate": {
+      "count": 180519.0,
+      "mean": 0.1017,
+      "std": 0.0704,
+      "min": 0.0,
+      "25%": 0.04,
+      "50%": 0.1,
+      "75%": 0.16,
+      "max": 0.25
+    },
+    "product_price": {
+      "count": 180519.0,
+      "mean": 141.2325,
+      "std": 139.7325,
+      "min": 9.99,
+      "25%": 50.0,
+      "50%": 59.99,
+      "75%": 199.99,
+      "max": 1999.99
+    },
+    "order_hour": {
+      "count": 180519.0,
+      "mean": 11.4837,
+      "std": 6.923,
+      "min": 0.0,
+      "25%": 5.0,
+      "50%": 11.0,
+      "75%": 17.0,
+      "max": 23.0
+    }
+  },
+  "target_distribution": {
+    "tidak_terlambat": 81542,
+    "terlambat": 98977,
+    "late_rate": 0.5482913155955883
+  },
+  "late_rate_by": {
+    "shipping_mode": {
+      "Standard Class": {
+        "late_rate": 0.3807,
+        "n": 107752
+      },
+      "Same Day": {
+        "late_rate": 0.4574,
+        "n": 9737
+      },
+      "Second Class": {
+        "late_rate": 0.7663,
+        "n": 35216
+      },
+      "First Class": {
+        "late_rate": 0.9532,
+        "n": 27814
+      }
+    },
+    "market": {
+      "LATAM": {
+        "late_rate": 0.5436,
+        "n": 51594
+      },
+      "Africa": {
+        "late_rate": 0.5459,
+        "n": 11614
+      },
+      "USCA": {
+        "late_rate": 0.548,
+        "n": 25799
+      },
+      "Pacific Asia": {
+        "late_rate": 0.5505,
+        "n": 41260
+      },
+      "Europe": {
+        "late_rate": 0.5521,
+        "n": 50252
+      }
+    },
+    "customer_segment": {
+      "Corporate": {
+        "late_rate": 0.5472,
+        "n": 54789
+      },
+      "Consumer": {
+        "late_rate": 0.5481,
+        "n": 93504
+      },
+      "Home Office": {
+        "late_rate": 0.5507,
+        "n": 32226
+      }
+    },
+    "payment_type": {
+      "TRANSFER": {
+        "late_rate": 0.4854,
+        "n": 49883
+      },
+      "CASH": {
+        "late_rate": 0.5663,
+        "n": 19616
+      },
+      "DEBIT": {
+        "late_rate": 0.5722,
+        "n": 69295
+      },
+      "PAYMENT": {
+        "late_rate": 0.5753,
+        "n": 41725
+      }
+    },
+    "department": {
+      "Discs Shop": {
+        "late_rate": 0.5444,
+        "n": 2026
+      },
+      "Footwear": {
+        "late_rate": 0.5473,
+        "n": 14525
+      },
+      "Apparel": {
+        "late_rate": 0.5475,
+        "n": 48998
+      },
+      "Fan Shop": {
+        "late_rate": 0.5477,
+        "n": 66861
+      },
+      "Golf": {
+        "late_rate": 0.5478,
+        "n": 33220
+      },
+      "Technology": {
+        "late_rate": 0.5502,
+        "n": 1465
+      },
+      "Outdoors": {
+        "late_rate": 0.5549,
+        "n": 9686
+      },
+      "Fitness": {
+        "late_rate": 0.5555,
+        "n": 2479
+      },
+      "Health and Beauty": {
+        "late_rate": 0.558,
+        "n": 362
+      },
+      "Book Shop": {
+        "late_rate": 0.5654,
+        "n": 405
+      },
+      "Pet Shop": {
+        "late_rate": 0.5894,
+        "n": 492
+      }
+    },
+    "order_region": {
+      "Caribbean": {
+        "late_rate": 0.5308,
+        "n": 8318
+      },
+      "West of USA": {
+        "late_rate": 0.5396,
+        "n": 7993
+      },
+      "Oceania": {
+        "late_rate": 0.5402,
+        "n": 10148
+      },
+      "Northern Europe": {
+        "late_rate": 0.5404,
+        "n": 9792
+      },
+      "South America": {
+        "late_rate": 0.5431,
+        "n": 14935
+      },
+      "Eastern Asia": {
+        "late_rate": 0.5433,
+        "n": 7280
+      },
+      "Southern Europe": {
+        "late_rate": 0.5438,
+        "n": 9431
+      },
+      "Central America": {
+        "late_rate": 0.5475,
+        "n": 28341
+      },
+      "US Center": {
+        "late_rate": 0.5524,
+        "n": 5887
+      },
+      "West Asia": {
+        "late_rate": 0.5528,
+        "n": 6009
+      },
+      "Southeast Asia": {
+        "late_rate": 0.5553,
+        "n": 9539
+      },
+      "East of USA": {
+        "late_rate": 0.5566,
+        "n": 6915
+      },
+      "South of  USA": {
+        "late_rate": 0.5577,
+        "n": 4045
+      },
+      "Western Europe": {
+        "late_rate": 0.5585,
+        "n": 27109
+      },
+      "South Asia": {
+        "late_rate": 0.5627,
+        "n": 7731
+      }
+    },
+    "order_weekday": {
+      "0": {
+        "late_rate": 0.5505,
+        "n": 25786
+      },
+      "1": {
+        "late_rate": 0.543,
+        "n": 25622
+      },
+      "2": {
+        "late_rate": 0.5476,
+        "n": 25587
+      },
+      "3": {
+        "late_rate": 0.5501,
+        "n": 25752
+      },
+      "4": {
+        "late_rate": 0.5517,
+        "n": 25925
+      },
+      "5": {
+        "late_rate": 0.544,
+        "n": 25901
+      },
+      "6": {
+        "late_rate": 0.5511,
+        "n": 25946
+      }
+    },
+    "order_month": {
+      "1": {
+        "late_rate": 0.5466,
+        "n": 17979
+      },
+      "2": {
+        "late_rate": 0.5455,
+        "n": 14529
+      },
+      "3": {
+        "late_rate": 0.5525,
+        "n": 15919
+      },
+      "4": {
+        "late_rate": 0.5428,
+        "n": 15435
+      },
+      "5": {
+        "late_rate": 0.5474,
+        "n": 15976
+      },
+      "6": {
+        "late_rate": 0.5483,
+        "n": 15139
+      },
+      "7": {
+        "late_rate": 0.5406,
+        "n": 15922
+      },
+      "8": {
+        "late_rate": 0.5579,
+        "n": 15912
+      },
+      "9": {
+        "late_rate": 0.553,
+        "n": 15489
+      },
+      "10": {
+        "late_rate": 0.546,
+        "n": 12955
+      },
+      "11": {
+        "late_rate": 0.5455,
+        "n": 12500
+      },
+      "12": {
+        "late_rate": 0.5534,
+        "n": 12764
+      }
+    },
+    "scheduled_days": {
+      "0": {
+        "late_rate": 0.4574,
+        "n": 9737
+      },
+      "1": {
+        "late_rate": 0.9532,
+        "n": 27814
+      },
+      "2": {
+        "late_rate": 0.7663,
+        "n": 35216
+      },
+      "4": {
+        "late_rate": 0.3807,
+        "n": 107752
+      }
+    }
+  },
+  "correlation_with_target": {
+    "scheduled_days": -0.3694,
+    "quantity": -0.0001,
+    "discount_rate": 0.0004,
+    "product_price": -0.0022,
+    "order_hour": 0.047
+  },
+  "figures": [
+    {
+      "file": "target_distribution.png",
+      "title": "Distribusi target",
+      "caption": "Jumlah baris untuk masing-masing kelas. Digunakan untuk menilai keseimbangan kelas."
+    },
+    {
+      "file": "late_by_shipping_mode.png",
+      "title": "Keterlambatan menurut mode pengiriman",
+      "caption": "Persentase baris dengan Late_delivery_risk = 1 pada tiap mode pengiriman. Garis putus-putus adalah rata-rata keseluruhan."
+    },
+    {
+      "file": "late_by_market.png",
+      "title": "Keterlambatan menurut pasar",
+      "caption": "Persentase baris dengan Late_delivery_risk = 1 pada tiap pasar. Garis putus-putus adalah rata-rata keseluruhan."
+    },
+    {
+      "file": "late_by_customer_segment.png",
+      "title": "Keterlambatan menurut segmen pelanggan",
+      "caption": "Persentase baris dengan Late_delivery_risk = 1 pada tiap segmen pelanggan. Garis putus-putus adalah rata-rata keseluruhan."
+    },
+    {
+      "file": "late_by_payment_type.png",
+      "title": "Keterlambatan menurut tipe pembayaran",
+      "caption": "Persentase baris dengan Late_delivery_risk = 1 pada tiap tipe pembayaran. Garis putus-putus adalah rata-rata keseluruhan."
+    },
+    {
+      "file": "late_by_department.png",
+      "title": "Keterlambatan menurut departemen produk",
+      "caption": "Persentase baris dengan Late_delivery_risk = 1 pada tiap departemen produk. Garis putus-putus adalah rata-rata keseluruhan."
+    },
+    {
+      "file": "late_by_order_region.png",
+      "title": "Keterlambatan menurut wilayah pesanan",
+      "caption": "Persentase baris dengan Late_delivery_risk = 1 pada tiap wilayah pesanan. Garis putus-putus adalah rata-rata keseluruhan."
+    },
+    {
+      "file": "late_by_order_weekday.png",
+      "title": "Keterlambatan menurut hari pesanan",
+      "caption": "Persentase baris dengan Late_delivery_risk = 1 pada tiap hari pesanan. Garis putus-putus adalah rata-rata keseluruhan."
+    },
+    {
+      "file": "late_by_order_month.png",
+      "title": "Keterlambatan menurut bulan pesanan",
+      "caption": "Persentase baris dengan Late_delivery_risk = 1 pada tiap bulan pesanan. Garis putus-putus adalah rata-rata keseluruhan."
+    },
+    {
+      "file": "late_by_scheduled_days.png",
+      "title": "Keterlambatan menurut hari terjadwal",
+      "caption": "Persentase keterlambatan untuk tiap nilai hari pengiriman terjadwal."
+    },
+    {
+      "file": "numeric_histograms.png",
+      "title": "Distribusi fitur numerik",
+      "caption": "Histogram tiap fitur numerik, dibedakan menurut kelas target."
+    },
+    {
+      "file": "correlation.png",
+      "title": "Korelasi fitur numerik",
+      "caption": "Korelasi Pearson antar fitur numerik dan target."
+    }
+  ]
+}

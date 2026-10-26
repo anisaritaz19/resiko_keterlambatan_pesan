@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}EDA - Prediksi Keterlambatan{% endblock %}
+{% block content %}
+<h1>Analisis Data Eksploratif (EDA)</h1>
+{% if not summary %}
+<div class="alert warn">Ringkasan EDA belum tersedia. Jalankan <code>python train.py</code>.</div>
+{% else %}
+<section class="cards">
+  <div><span>{{ summary.n_rows|num }}</span>baris dipakai</div>
+  <div><span>{{ summary.n_orders|num }}</span>pesanan unik</div>
+  <div><span>{{ summary.target_distribution.late_rate|pct(1) }}</span>pengiriman terlambat</div>
+  <div><span>{{ summary.duplicate_rows|num }}</span>baris fitur duplikat</div>
+</section>
+<p class="muted">Baris dibuang karena target tidak valid:
+  {{ summary.cleaning.rows_dropped_invalid_target|num }};
+  karena tanggal tidak valid: {{ summary.cleaning.rows_dropped_invalid_date|num }}.</p>
+<div class="figs">
+  {% for fig in summary.figures %}
+  <figure><img src="{{ url_for('artifact_file', filename='eda/' ~ fig.file) }}" alt="{{ fig.title }}">
+    <figcaption><strong>{{ fig.title }}.</strong> {{ fig.caption }}</figcaption></figure>
+  {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
